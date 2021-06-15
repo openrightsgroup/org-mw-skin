@@ -1,73 +1,98 @@
-<div id="mw-wrapper">
-	<div class="mw-body" id="content" role="main">
-		<div id="siteNotice">{{{html-site-notice}}}</div>
-		{{{html-user-message}}}
-		<div class="mw-indicators mw-body-content">
-		{{#array-indicators}}
-		<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-		{{/array-indicators}}
-		</div>
-		<h1 class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
-		<div id="siteSub">{{msg-tagline}}</div>
-		<div class="mw-body-content">
-			<div id="contentSub">
-				{{{html-subtitle}}}
-				{{{html-undelete-link}}}
-			</div>
-			{{{html-body-content}}}
-			<!-- todo: replace with .mixin-clearfix -->
-			<div class="visualClear"></div>
-			{{{html-categories}}}
-		</div>
-		{{{html-after-content}}}
-	</div>
-	<div id="mw-navigation">
-		<h2>{{msg-navigation-heading}}</h2>
-		<div id="p-logo" class="mw-portlet" role="banner">
-			<a href="{{link-mainpage}}">
-			{{#data-logos}}
-				{{#icon}}<img src="{{.}}" width="40" height="40">{{/icon}}
-				{{#wordmark}}<img src="{{src}}" width="{{width}}" height="{{height}}">{{/wordmark}}
-				{{^wordmark}}<h1>{{msg-sitetitle}}</h1>{{/wordmark}}
-			{{/data-logos}}
-			</a>
-		</div>
-		{{#data-search-box}}
-		<form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
-			<input type="hidden" name="title" value="{{page-title}}">
-			<h3>
-				<label for="searchInput">{{msg-search}}</label>
-			</h3>
-			{{{html-input}}}
-			{{{html-button-search}}}
-		</form>
-		{{/data-search-box}}
-		{{#data-portlets}}
-		<div id="user-tools">
-			{{#data-personal}}{{>Portlet}}{{/data-personal}}
-		</div>
-		<div id="page-tools">
-			{{#data-namespaces}}{{>Portlet}}{{/data-namespaces}}
-			{{#data-variants}}{{>Portlet}}{{/data-variants}}
-			{{#data-views}}{{>Portlet}}{{/data-views}}
-			{{#data-actions}}{{>Portlet}}{{/data-actions}}
-		</div>
-		{{/data-portlets}}
-		<div id="site-navigation">
-			{{#data-portlets-sidebar.data-portlets-first}}{{>Portlet}}{{/data-portlets-sidebar.data-portlets-first}}
-			{{#data-portlets-sidebar.array-portlets-rest}}{{>Portlet}}{{/data-portlets-sidebar.array-portlets-rest}}
-			{{#data-portlets.data-languages}}{{>Portlet}}{{/data-portlets.data-languages}}
-		</div>
-	</div>
-	<div id="footer" class="mw-footer" role="contentinfo" {{{html-user-language-attributes}}}>
-		{{#data-footer}}
-		{{!}}{{#data-icons}}{{>FooterList}}{{/data-icons}}
-		{{!}}<div id="footer-list">
-		{{!}}{{#data-info}}{{>FooterList}}{{/data-info}}
-		{{!}}{{#data-places}}{{>FooterList}}{{/data-places}}
-		{{!}}</div>
-		{{/data-footer}}
-		<!-- todo: replace with .mixin-clearfix -->
-		<div class="visualClear"></div>
-	</div>
-</div>
+<header class="navbar-container sticky-top">
+  <div class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a href="/" class="navbar-brand"><img class="navbar-brand__image" src="https://www.openrightsgroup.org/app/themes/outlandish/assets/img/logo-black.svg" alt="Open Rights Group" title="Open Rights Group"> WIKI</a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div id="main-menu" class="collapse navbar-collapse">
+        <nav class="ml-auto">
+          <ul class="navbar-nav">
+            {{#data-portlets-sidebar}}
+            {{#data-portlets-first}}{{{html-items}}}{{/data-portlets-first}}
+            {{/data-portlets-sidebar}}
+            <li class="nav-item nav-button">
+              <a href="https://www.openrightsgroup.org/become-an-org-member/">Join ORG</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="content" class="mw-body">
+  <div class="post-content">
+    <div class="container">
+      {{>Notices}}
+      <header class="content__header heading">
+        <h1 class="firstHeading content__heading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+        {{{html-subtitle}}}
+      </header>
+      {{{html-body-content}}}
+      {{#html-categories}}{{{.}}}{{/html-categories}}
+      {{{html-after-content}}}
+    </div>
+  </div>
+</main>
+
+<footer id="footer" class="mw-footer footer container-fluid" role="contentinfo" {{{html-user-language-attributes}}}>
+  <div class="footer__search mb-4">
+  {{#data-search-box}}
+    <form action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
+      <input type="hidden" name="title" value="{{page-title}}">
+      {{{html-input}}}
+      {{{html-button-search}}}
+    </form>
+  {{/data-search-box}}
+  </div>
+  <div class="footer__row">
+    <div class="wp-block-columns">
+      <div class="wp-block-column">
+	<h4>Meta</h4>
+	<ul>
+          {{#data-portlets.data-namespaces}}
+          {{{html-items}}}
+          {{/data-portlets.data-namespaces}}
+          {{#data-portlets.data-views}}
+          {{{html-items}}}
+          {{/data-portlets.data-views}}
+	</ul>
+      </div> 
+      <div class="wp-block-column">
+	<h4>Info</h4>
+	<ul>
+          <li><a href="/wiki/ORG_Wiki:Privacy_policy" title="ORG Wiki:Privacy policy">Privacy policy</a></li>
+          <li><a href="/wiki/ORG_Wiki:About" title="ORG Wiki:About">About ORG Wiki</a></li>
+          <li><a href="/wiki/ORG_Wiki:General_disclaimer" title="ORG Wiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+      </div>
+      <div class="wp-block-column">
+	<h4>Tools</h4>
+	<ul>
+          {{#data-portlets-sidebar}}
+          {{#array-portlets-rest}}{{{html-items}}}{{/array-portlets-rest}}
+          {{/data-portlets-sidebar}}
+	</ul>
+      </div> 
+      <div class="wp-block-column">
+	<h4>Personal tools</h4>
+	<ul>
+          {{#data-portlets.data-user-menu}}
+          {{{html-items}}}
+          {{/data-portlets.data-user-menu}}
+	</ul>
+      </div> 
+    </div>
+    <hr class="wp-block-separator">
+    <div class="wp-block-columns">
+      <div class="wp-block-column">
+        <p><a href="https://creativecommons.org/licenses/by-sa/3.0/"> <img loading="lazy" src="https://www.openrightsgroup.org/app/uploads/2020/07/CC-BY-SA-15px.png" alt="" class="wp-image-7386" width="60" height="21"></a> <a href="https://creativecommons.org/licenses/by-sa/3.0/">2005 – 2021, free to reuse except where stated.</a> <a href="https://www.openrightsgroup.org/credits/">Credits</a></p>
+        <p>Open Rights is a non-profit company limited by Guarantee, registered in England and Wales no.&nbsp;<a href="http://data.companieshouse.gov.uk/doc/company/05581537">05581537</a>.</p>
+      </div>
+      <div class="wp-block-column">
+        <ul class="footer-policy-list"><li><a href="https://www.openrightsgroup.org/privacy-policy/">Privacy and cookie policy</a></li></ul>
+      </div>
+    </div>
+  </div>
+</footer>

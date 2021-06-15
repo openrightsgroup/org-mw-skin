@@ -1,102 +1,107 @@
 /* Common styling for the Org skin */
 
+
 @import 'variables.less';
 
-// Page layout
-
-#mw-wrapper {
-	max-width: @width;
-	margin: 0 auto;
-	position: relative;
-	padding: 1em;
+.navbar-brand {
+	background-color: transparent;
+	font-family: "Fjalla One",sans-serif;
+	font-size: 1.4rem;
 }
 
-#p-logo {
-	text-align: center;
-	width: 10em;
-	float: right;
-
-	// Make logo image visible
-	// The class sets the background image from $wgLogo, but we still need to give it a size in order to show up
-	a.mw-wiki-logo {
-		display: block;
-		content: '';
-		width: 10em;
-		height: 10em;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-	}
+ul.navbar-nav li {
+	line-height: 1rem;
 }
 
-.mw-body {
-	position: relative;
-	word-wrap: break-word;
+ul.navbar-nav li#n-mainsite-description {
+	line-height: 1.4rem;
 }
 
-// Some content stuff
-.firstHeading {
-	margin-top: 0;
+ul.navbar-nav a {
+	line-height: 1.4rem;
 }
 
-.mw-indicators {
-	float: right;
-	margin: 1.5em 0 0 1em;
+main section.heading h1 {
+	font-size: 3.5rem;
+	text-transform: none;
 }
 
-pre {
-	overflow: auto;
-	white-space: pre-wrap;
+.post-content h1 {
+	font-size: 3rem;
+	text-transform: none;
+	line-height: 4.0rem;
 }
 
-.center,
-.center * {
-	margin: auto;
-	text-align: center;
+.post-content h2 {
+	text-transform: none;
+	max-width: 45rem;
+	margin-top: 0.8rem;
+	line-height: 2.2rem;
 }
 
-// Splatter the menus and tools at the bottom
-.mw-footer,
-#page-tools,
-#p-personal {
-	margin: 1em 0;
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-	}
-
-	li {
-		padding-right: 1em;
-		display: inline-block;
-	}
+.post-content h3 {
+	text-transform: none;
+	max-width: 45rem;
 }
 
-#page-tools .mw-portlet {
-	display: inline-block;
+li.wiki-menu a {
+	font-size: 1.0rem;
 }
 
-#mw-navigation {
-	margin: 1em 0;
+div.catlinks li::before {
+	content:none;
 }
 
-// Footer
-.mw-footer {
-	border-top: 1px solid @border;
+div.mw-content-ltr ul li:before {
+	position:relative;
+}
+	
 
-	// stylelint-disable-next-line no-descending-specificity
-	ul {
-		margin-top: 1em;
-	}
+div.mw-references-wrap {
+	font-size: 0.8rem;
 }
 
-#footer-icons {
-	float: right;
-	margin: 0 0 1em 1em;
+div.catlinks li {
+	list-style-type: none;
+	list-style-position: outside;
+	box-sizing: border-box;
+
+      	color: rgb(90, 85, 85);
+	display: inline;
+	font-family: "Fjalla One", sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	height: auto;
+	line-height: 24px;
+	text-align: left;
+	width: auto;
 }
 
-// hidden stuff
-#page-tools h3,
-#p-search h3,
-#p-personal h3 {
-	.hidden;
+.post-content dl {
+	max-width: 45rem;
 }
+
+/*
+.post-content p {
+	max-width: none;
+}
+*
+*/
+
+blockquote {
+	  margin-left: 40px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
+
+footer h4 { color: white; }
+div#main-menu a:visited { color: black; }
+div#main-menu a:hover { color: red;}
+.footer a:visited { color: white; }
+
+a[href^="http:"]::after { color: red; font-size: smaller; content: "⚠️"; }
+
+.printfooter {
+	display: none
+}
+
