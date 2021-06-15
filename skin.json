@@ -1,24 +1,24 @@
 {
-	"name": "Example",
-	"version": "1.0",
-	"author": "...",
-	"url": "https://www.mediawiki.org/wiki/Skin:Example",
-	"descriptionmsg": "example-desc",
-	"namemsg": "skinname-example",
+	"name": "Org",
+	"version": "0.1",
+	"author": "lee@openrightsgroup.org",
+	"url": "https://wiki.openrightsgroup.org",
+	"descriptionmsg": "org-desc",
+	"namemsg": "skinname-org",
 	"license-name": "CC0-1.0",
 	"type": "skin",
 	"requires": {
 		"MediaWiki": ">= 1.36.0"
 	},
 	"ValidSkinNames": {
-		"example": {
+		"org": {
 			"class": "SkinMustache",
 			"args": [ {
-				"name": "example",
+				"name": "org",
 				"responsive": true,
-				"templateDirectory": "skins/Example/templates",
+				"templateDirectory": "skins/Org/templates",
 				"styles": [
-					"skins.example"
+					"skins.org"
 				],
 				"messages": [
 					"sitetitle",
@@ -27,18 +27,18 @@
 					"navigation-heading"
 				],
 				"scripts": [
-					"skins.example.js"
+					"skins.org.js"
 				]
 			} ]
 		}
 	},
 	"MessagesDirs": {
-		"Example": [
+		"Org": [
 			"i18n"
 		]
 	},
 	"ResourceModules": {
-		"skins.example": {
+		"skins.org": {
 			"class": "ResourceLoaderSkinModule",
 			"features": {
 				"normalize": true,
@@ -53,18 +53,12 @@
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
-				"resources/screen-desktop.less": {
-					"media": "screen and (min-width: 751px)"
-				},
-				"resources/screen-mobile.less": {
-					"media": "screen and (max-width: 750px)"
-				},
 				"resources/print.css": {
 					"media": "print"
 				}
 			}
 		},
-		"skins.example.js": {
+		"skins.org.js": {
 			"scripts": [
 				"resources/main.js"
 			]
@@ -72,10 +66,10 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "Example"
+		"remoteSkinPath": "Org"
 	},
 	"ResourceModuleSkinStyles": {
-		"example": {
+		"org": {
 			"+ext.echo.styles.badge": "resources/extensions/echo.styles.badge.less"
 		}
 	},

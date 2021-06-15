@@ -1,7 +1,7 @@
 {
 	"@metadata": {
-		"authors": [ "..." ]
+		"authors": [ "lee@openrightsgroup.org" ]
 	},
-	"skinname-example": "{{optional}}",
-	"example-desc": "{{desc|what=skin|name=Example|url=https://www.mediawiki.org/wiki/Skin:Example}}"
+	"skinname-org": "{{optional}}",
+	"org-desc": "{{desc|what=skin|name=Org|url=https://wiki.openrightsgroup.org}}"
 }
