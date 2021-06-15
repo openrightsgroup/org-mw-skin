@@ -50,6 +50,12 @@
 				"logo": true
 			},
 			"styles": {
+				"assets/app.css": {
+					"media": "screen"
+				},
+				"assets/style.css": {
+					"media": "screen"
+				},
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
